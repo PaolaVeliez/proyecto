@@ -26,4 +26,8 @@ public class UsuarioService {
    public void save (Usuario usuario){
        iusuarioRepository.save(usuario);
    }
+
+    Object getByNombreUsuario(String nombreUsuario) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

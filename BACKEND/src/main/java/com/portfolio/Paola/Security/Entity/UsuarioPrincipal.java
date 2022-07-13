@@ -15,13 +15,14 @@ public class UsuarioPrincipal implements UserDetails {
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, <any>  authorities) {
+    public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
     }
+
 
     public static UsuarioPrincipal build(Usuario usuario) {
 
@@ -67,10 +68,7 @@ public class UsuarioPrincipal implements UserDetails {
         return true;
     }
 
-    @Override
-    public boolean inEnabled() {
-        return true;
-    }
+
 
     @Override
     public boolean isEnabled() {

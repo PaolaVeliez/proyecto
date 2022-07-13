@@ -12,14 +12,20 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JwtEntryPoint implements AuthenticationEntryPoint{
-   private final static Logger logger = LoggerFactory.getLogger(JwtEntryPoint.class); 
+public abstract class JwtEntryPoint implements AuthenticationEntryPoint{
+   private final static Logger logger = (Logger) LoggerFactory.getLogger(JwtEntryPoint.class); 
    
-  public void commence  (HttpServletRequest request, HttpServletResponse response, AuthenticationException authException);
-  response.sendError(HttpServletResponse.SC_CUNATHORIZED );
-
+ 
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, org.springframework.security.core.AuthenticationException authException) throws IOException, ServletException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException{
+            logger.error("Fallo el metodo commence");
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
     }
+
+  
 }
+
+
+    
+
